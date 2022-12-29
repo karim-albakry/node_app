@@ -1,4 +1,4 @@
-pipline {
+pipeline {
     agent any
     tools {
         node 'NodeJS-18.12.1'
