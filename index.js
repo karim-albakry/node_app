@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 
 const path = __dirname + '/views/';
-const port = 3000;
+const port = 8000;
 
 app.get('/', (req, res) => {
 
@@ -14,5 +14,5 @@ app.get('/', (req, res) => {
   })
 
 app.listen(port, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('Example app listening on port 8000!')
 })
