@@ -1,7 +1,18 @@
-const greetings = require('./greetings');
-const prompt = require("prompt-sync")({ sigint: true });
+const express = require('express');
 
-const name =prompt("What is your name? ");
+const greetings = require('./greetings')
 
-console.log(greetings.say_hello(name));
-console.log(greetings.say_bonjour(name));
+const app = express();
+const router = express.Router();
+
+const path = __dirname + '/views/';
+const port = 3000;
+
+app.get('/', (req, res) => {
+
+    res.send(greetings.say_bonjour('Karim'))
+  })
+
+app.listen(port, function () {
+  console.log('Example app listening on port 3000!')
+})
