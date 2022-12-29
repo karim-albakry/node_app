@@ -1,0 +1,8 @@
+pipline {
+    agent anyconsole.log(
+    stages {
+        stage('Test') {
+            sh 'npm test'
+        }
+    }
+}
