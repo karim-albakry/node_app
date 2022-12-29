@@ -6,9 +6,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                ech 'Checkout form repo...'
+                echo 'Checkout form repo...'
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/karim-albakry/node_app']]])
-                ech 'Checkout finished'
+                echo 'Checkout finished'
             }
         }
         stage('test'){
