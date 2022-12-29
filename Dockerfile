@@ -6,4 +6,5 @@ RUN npm install -g npm@9.2.0
 COPY package.json .
 RUN npm install
 COPY . .
+EXPOSE 8000
 CMD [ "node", "index.js" ]
