@@ -1,4 +1,7 @@
 const greetings = require('./greetings');
+const prompt = require("prompt-sync")({ sigint: true });
 
-greetings.say_hello("karim");
-greetings.say_bonjour("karim");
+const name =prompt("What is your name? ");
+
+console.log(greetings.say_hello(name));
+console.log(greetings.say_bonjour(name));
