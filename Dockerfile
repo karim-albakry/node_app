@@ -1,4 +1,4 @@
-FROM node:18.12.1-alpine3.16
+FROM node
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install libssl-dev
 WORKDIR /app
