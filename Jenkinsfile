@@ -14,12 +14,17 @@ pipeline {
                 sh 'docker build -t node_app .'
             }
         }
-        stage('test'){
-            steps {
-                echo 'Testing started.....'
-                // sh 'npm test'
-                echo 'Testing Finished.'
+        stage('Test') {
+          steps {
+            script {
+              sh 'npm run test'
             }
+          }
+          post {
+            always {
+              junit 'output/coverage/junit/junit.xml'
+            }
+          }
         }
     }
 }
