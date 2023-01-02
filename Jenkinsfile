@@ -9,6 +9,13 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/karim-albakry/node_app']]])
             }
         }
+        stage('Startup') {
+            steps {
+                script {
+                    sh 'npm install'
+                }
+            }
+        }
         stage('Test') {
           steps {
             script {
