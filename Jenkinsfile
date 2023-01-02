@@ -31,7 +31,7 @@ pipeline {
   failUnstable: true,
   failUnhealthy: true,
   failNoReports: true,
-  onlyStable: false
+  onlyStable: false,
   conditionalCoverageTargets: '80, 0, 0',
   fileCoverageTargets: '80, 0, 0',
   lineCoverageTargets: '80, 0, 0',
