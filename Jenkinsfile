@@ -24,7 +24,20 @@ pipeline {
             }
             post {
               always {
-                step([$class: 'CoberturaPublisher', coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', autoUpdateHealth: true,])
+                step([$class: 'CoberturaPublisher', coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml',
+                 enableNewApi: true,
+  autoUpdateHealth: true,
+  autoUpdateStability: true,
+  failUnstable: true,
+  failUnhealthy: true,
+  failNoReports: true,
+  onlyStable: false
+  conditionalCoverageTargets: '80, 0, 0',
+  fileCoverageTargets: '80, 0, 0',
+  lineCoverageTargets: '80, 0, 0',
+  methodCoverageTargets: '80, 0, 0',
+  packageCoverageTargets: '80, 0, 0'
+  ])
               }
             }
         }
