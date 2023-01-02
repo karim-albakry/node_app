@@ -1,6 +1,6 @@
-# syntax=docker/dockerfile:1
-
 FROM node:18.12.1-alpine3.16
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install libssl-dev
 WORKDIR /app
 RUN npm install -g npm@9.2.0
 COPY package.json .
