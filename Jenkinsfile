@@ -9,11 +9,6 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/karim-albakry/node_app']]])
             }
         }
-        stage('Build docker image') {
-            steps {
-                sh 'docker build -t node_app .'
-            }
-        }
         stage('Test') {
           steps {
             script {
@@ -25,6 +20,11 @@ pipeline {
               junit 'output/coverage/junit/junit.xml'
             }
           }
+        }
+        stage('Build docker image') {
+            steps {
+                sh 'docker build -t node_app .'
+            }
         }
     }
 }
