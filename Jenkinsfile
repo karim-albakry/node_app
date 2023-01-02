@@ -17,16 +17,16 @@ pipeline {
             }
         }
         stage('Test') {
-          steps {
-            script {
-              sh 'npm run test'
+            steps {
+              script {
+                sh 'npm run test'
+              }
             }
-          }
-          post {
-            always {
-              junit 'output/coverage/junit/junit.xml'
+            post {
+              always {
+                step([$class: 'CoberturaPublisher', coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml'])
+              }
             }
-          }
         }
         stage('Build docker image') {
             steps {

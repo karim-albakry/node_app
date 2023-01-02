@@ -8,23 +8,15 @@
   },
   "jest": {
     "coverageReporters": [
-      "text"
-    ],
-    "reporters": [
-      "default",
-      "jest-junit"
+      "text",
+      "cobertura"
     ]
-  },
-  "jest-junit": {
-    "output": "output/coverage/junit/junit.xml",
-    "usePathForSuiteName": "true"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^29.3.1",
-    "jest-junit": "^15.0.0"
+    "jest": "^29.3.1"
   },
   "repository": {
     "type": "git",
