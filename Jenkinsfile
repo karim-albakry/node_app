@@ -25,7 +25,7 @@ pipeline {
             post {
                 always {
                     // step([$class: 'CoberturaPublisher', coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml'])
-                    cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: '70, 70, 70', failUnstable: false, lineCoverageTargets: '80, 80, 80', maxNumberOfBuilds: 1, methodCoverageTargets: '80, 80, 80', sourceEncoding: 'ASCII', zoomCoverageChart: false
+                    $class: 'CoberturaPublisher', cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: '70, 70, 70', failUnstable: false, lineCoverageTargets: '80, 80, 80', maxNumberOfBuilds: 1, methodCoverageTargets: '80, 80, 80', sourceEncoding: 'ASCII', zoomCoverageChart: false
                      }
              }
     }
