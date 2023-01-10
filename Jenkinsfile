@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        imageName = "pip_poc_01"
+        imageName = "pip_poc_03"
         registryCredentials = "	nexus"
         registry = "10.200.100.116:8083"
         dockerImage = ''
