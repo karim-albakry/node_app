@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        imageName = "npip_poc"
+        imageName = "pip_poc_01"
         registryCredentials = "	nexus"
         registry = "10.200.100.116:8083"
         dockerImage = ''
@@ -47,9 +47,9 @@ pipeline {
                         method_CT = '80, 0, 0'
                     }
                     if (env.BRANCH_NAME == "test") {
-                        conditional_CT = '70, 0, 0'
-                        line_CT = '80, 0, 0'
-                        method_CT = '80, 0, 0'
+                        conditional_CT = '70, 70, 70'
+                        line_CT = '80, 80, 80'
+                        method_CT = '80, 80, 80'
                     } 
                 }
             }
