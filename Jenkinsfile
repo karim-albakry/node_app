@@ -6,6 +6,9 @@ pipeline {
         registryCredentials = "	nexus"
         registry = "10.200.100.116:8083"
         dockerImage = ''
+        conditional_CT=''
+        line_CT=''
+        method_CT-''
     }
 
     tools {
@@ -29,6 +32,32 @@ pipeline {
             }
         }
 
+        stage('expression-branch') {
+            when {
+                expression {
+                    return env.BRANCH_NAME != 'main';
+                }
+            }
+            steps {
+                echo 'run this stage - when branch is not equal to main'
+            }
+            when {
+                expression {
+                    return env.BRANCH_NAME != 'dev';
+                }
+            }
+            steps {
+                echo 'run this stage - when branch is not equal to dev'
+            }
+            when {
+                expression {
+                    return env.BRANCH_NAME != 'test';
+                }
+            }
+            steps {
+                echo 'run this stage - when branch is not equal to test'
+            }
+        }
         stage('Test') {
             steps {
               script {
