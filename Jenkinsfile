@@ -35,7 +35,7 @@ pipeline {
         stage('expression-branch') {
             steps {
                 script {
-                    sh  "ech ${env.BRANCH_NAME} environment is running"
+                    sh  "echo ${env.BRANCH_NAME} environment is running"
                     if (env.BRANCH_NAME == "main") {                                          
                        conditional_CT = '70, 0, 0'
                        line_CT = '80, 0, 0'
