@@ -63,7 +63,7 @@ pipeline {
             }
             post {
                 always {
-                    cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: conditional_CT, failUnstable: false, lineCoverageTargets: line_CT, maxNumberOfBuilds: 1, methodCoverageTargets: method_CT, sourceEncoding: 'ASCII', zoomCoverageChart: false
+                    cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: "${conditional_CT}", failUnstable: false, lineCoverageTargets: "${line_CT}", maxNumberOfBuilds: 1, methodCoverageTargets: "${method_CT}", sourceEncoding: 'ASCII', zoomCoverageChart: false
                 }
              }
         }
