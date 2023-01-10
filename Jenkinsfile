@@ -33,6 +33,7 @@ pipeline {
         }
 
         stage('expression-branch') {
+            steps {
                if (env.BRANCH_NAME == "main") {                                          
                 echo 'run this stage - when branch is not equal to main'
                } 
@@ -41,7 +42,8 @@ pipeline {
                }
                if (env.BRANCH_NAME == "test") {
                 echo 'run this stage - when branch is not equal to test'
-               }       
+               } 
+            }      
             // when {
             //     expression {
             //         return env.BRANCH_NAME != 'main';
