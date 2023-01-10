@@ -1,0 +1,7 @@
+driver: org.postgresql.Driver
+classpath: /home/kalbakry/liquibase-4.18.0/internal/lib/postgresql.jar
+url: jdbc:postgresql://localhost:5432/employee_db
+username: postgres
+password: postgres
+changeLogFile: db.postgresql.sql
+liquibase.hub.mode=all
