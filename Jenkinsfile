@@ -45,7 +45,7 @@ pipeline {
         stage('Build docker image') {
             steps {
                 script {
-                    dockerImage = docker.build imageName+"/"+env.BRANCH_NAME
+                    dockerImage = docker.build imageName
                 }
             }
         }
@@ -54,7 +54,7 @@ pipeline {
             steps {  
                 script {
                     docker.withRegistry( 'http://'+registry, registryCredentials ) {
-                        dockerImage.push('latest')
+                        dockerImage.push(env.BRANCH_NAME+'-latest')
                     }
                 }
             }
