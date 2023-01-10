@@ -35,7 +35,7 @@ pipeline {
         stage('expression-branch') {
             steps {
                 script {
-                    sh  "ech ${env.env.BRANCH_NAME} environment is running"
+                    sh  "ech ${env.BRANCH_NAME} environment is running"
                     if (env.BRANCH_NAME == "main") {                                          
                        conditional_CT = '70, 0, 0'
                        line_CT = '80, 0, 0'
@@ -63,7 +63,7 @@ pipeline {
             }
             post {
                 always {
-                    cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: "${conditional_CT}", failUnstable: false, lineCoverageTargets: "${line_CT}", maxNumberOfBuilds: 1, methodCoverageTargets: "${method_CT}", sourceEncoding: 'ASCII', zoomCoverageChart: false
+                    cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: conditional_CT, failUnstable: false, lineCoverageTargets: line_CT, maxNumberOfBuilds: 1, methodCoverageTargets: method_CT, sourceEncoding: 'ASCII', zoomCoverageChart: false
                 }
              }
         }
