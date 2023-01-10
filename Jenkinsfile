@@ -23,6 +23,12 @@ pipeline {
             }
         }
 
+        stage ('Code Quality') {
+            steps {
+                sh 'echo "todo run sonarqube >>>>Here<<<<."'
+            }
+        }
+
         stage('Test') {
             steps {
               script {

@@ -7,6 +7,7 @@
     "test": "jest --coverage --coverageDirectory=output/coverage/jest"
   },
   "jest": {
+    "collectCoverageFrom": ["./test/**"],
     "coverageReporters": [
       "text",
       "cobertura"
