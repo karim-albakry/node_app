@@ -54,7 +54,9 @@ pipeline {
             steps {  
                 script {
                     docker.withRegistry( 'http://'+registry, registryCredentials ) {
-                        dockerImage.push('latest')
+                        // sh "docker rmi -f ${imageName+"/"+env.BRANCH_NAME}"
+                        dockerImage.remove()
+                        // dockerImage.push('latest')
                     }
                 }
             }
