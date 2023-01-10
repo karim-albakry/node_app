@@ -33,31 +33,41 @@ pipeline {
         }
 
         stage('expression-branch') {
-            when {
-                expression {
-                    return env.BRANCH_NAME != 'main';
-                }
-            }
-            steps {
+               if (env.BRANCH_NAME == "main") {                                          
                 echo 'run this stage - when branch is not equal to main'
-            }
-            when {
-                expression {
-                    return env.BRANCH_NAME != 'dev';
-                }
-            }
-            steps {
+               } 
+               if (env.BRANCH_NAME == "dev") {
                 echo 'run this stage - when branch is not equal to dev'
-            }
-            when {
-                expression {
-                    return env.BRANCH_NAME != 'test';
-                }
-            }
-            steps {
+               }
+               if (env.BRANCH_NAME == "test") {
                 echo 'run this stage - when branch is not equal to test'
-            }
+               }       
+            // when {
+            //     expression {
+            //         return env.BRANCH_NAME != 'main';
+            //     }
+            // }
+            // steps {
+            //     echo 'run this stage - when branch is not equal to main'
+            // }
+            // when {
+            //     expression {
+            //         return env.BRANCH_NAME != 'dev';
+            //     }
+            // }
+            // steps {
+            //     echo 'run this stage - when branch is not equal to dev'
+            // }
+            // when {
+            //     expression {
+            //         return env.BRANCH_NAME != 'test';
+            //     }
+            // }
+            // steps {
+            //     echo 'run this stage - when branch is not equal to test'
+            // }
         }
+        
         stage('Test') {
             steps {
               script {
