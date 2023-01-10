@@ -34,15 +34,17 @@ pipeline {
 
         stage('expression-branch') {
             steps {
-               if (env.BRANCH_NAME == "main") {                                          
-                echo 'run this stage - when branch is not equal to main'
-               } 
-               if (env.BRANCH_NAME == "dev") {
-                echo 'run this stage - when branch is not equal to dev'
-               }
-               if (env.BRANCH_NAME == "test") {
-                echo 'run this stage - when branch is not equal to test'
-               } 
+                script {
+                    if (env.BRANCH_NAME == "main") {                                          
+                       sh  "echo 'run this stage - when branch is not equal to main'"
+                    } 
+                    if (env.BRANCH_NAME == "dev") {
+                        sh "echo 'run this stage - when branch is not equal to dev'"
+                    }
+                    if (env.BRANCH_NAME == "test") {
+                        sh "echo 'run this stage - when branch is not equal to test'"
+                    } 
+                }
             }      
             // when {
             //     expression {
