@@ -35,41 +35,24 @@ pipeline {
         stage('expression-branch') {
             steps {
                 script {
+                    sh  "ech ${env.env.BRANCH_NAME} environment is running"
                     if (env.BRANCH_NAME == "main") {                                          
-                       sh  "echo 'run this stage - when branch is not equal to main'"
+                       conditional_CT = '70, 0, 0'
+                       line_CT = '80, 0, 0'
+                       method_CT = '80, 0, 0'
                     } 
                     if (env.BRANCH_NAME == "dev") {
-                        sh "echo 'run this stage - when branch is not equal to dev'"
+                        conditional_CT = '70, 0, 0'
+                        line_CT = '80, 0, 0'
+                        method_CT = '80, 0, 0'
                     }
                     if (env.BRANCH_NAME == "test") {
-                        sh "echo 'run this stage - when branch is not equal to test'"
+                        conditional_CT = '70, 0, 0'
+                        line_CT = '80, 0, 0'
+                        method_CT = '80, 0, 0'
                     } 
                 }
-            }      
-            // when {
-            //     expression {
-            //         return env.BRANCH_NAME != 'main';
-            //     }
-            // }
-            // steps {
-            //     echo 'run this stage - when branch is not equal to main'
-            // }
-            // when {
-            //     expression {
-            //         return env.BRANCH_NAME != 'dev';
-            //     }
-            // }
-            // steps {
-            //     echo 'run this stage - when branch is not equal to dev'
-            // }
-            // when {
-            //     expression {
-            //         return env.BRANCH_NAME != 'test';
-            //     }
-            // }
-            // steps {
-            //     echo 'run this stage - when branch is not equal to test'
-            // }
+            }
         }
         
         stage('Test') {
@@ -80,7 +63,7 @@ pipeline {
             }
             post {
                 always {
-                    cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: '70, 0, 0', failUnstable: false, lineCoverageTargets: '80, 0, 0', maxNumberOfBuilds: 1, methodCoverageTargets: '80, 0, 0', sourceEncoding: 'ASCII', zoomCoverageChart: false
+                    cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: conditional_CT, failUnstable: false, lineCoverageTargets: line_CT, maxNumberOfBuilds: 1, methodCoverageTargets: method_CT, sourceEncoding: 'ASCII', zoomCoverageChart: false
                 }
              }
         }
