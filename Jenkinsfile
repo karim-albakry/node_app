@@ -8,7 +8,7 @@ pipeline {
         dockerImage = ''
         conditional_CT=''
         line_CT=''
-        method_CT-''
+        method_CT=''
     }
 
     tools {
