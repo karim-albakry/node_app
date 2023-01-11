@@ -10,6 +10,7 @@ pipeline {
             steps {
                 script {
                     sh 'which liquibase'
+                    sh 'liquibase --version'
                 }
             }
         }
