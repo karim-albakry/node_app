@@ -70,7 +70,7 @@ pipeline {
 
         stage ('Test Liquibase') {
             steps {
-                docker.image('mysql:5').withRun("liquibase --version") {
+                docker.image('liquibase/liquibase:4.4.2').withRun("liquibase --version") {
 
                 }
                }
