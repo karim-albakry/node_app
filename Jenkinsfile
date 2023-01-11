@@ -5,6 +5,7 @@ pipeline {
             steps {
                 script {
                     // sh 'wget https://github.com/liquibase/liquibase/releases/download/v4.18.0/liquibase-4.18.0.tar.gz'
+                    sh 'mkdir liquibase'
                     sh 'tar -xvzf liquibase-4.18.0.tar.gz liquibase'
                     sh 'ls'
                 }
