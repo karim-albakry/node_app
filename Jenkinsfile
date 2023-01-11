@@ -71,7 +71,9 @@ pipeline {
         stage ('Test Liquibase') {
             steps {
                 script {
-                    docker.image('liquibase/liquibase:4.4.2').withRun("liquibase --version")
+                    docker.image('liquibase/liquibase:4.4.2').withRun(){
+                        sh "liquibase --version"
+                    }
                 }
                }
         }
