@@ -2,15 +2,9 @@ pipeline {
   agent any
   stages {
        stage ('Test Liquibase') {
-            agent {
-                docker {
-                    image 'liquibase/liquibase'
-                }
-            }
             steps {
                 script {
-                    // sh 'which liquibase'
-                    sh 'liquibase --version'
+                    sh 'which wget'
                 }
             }
         }
