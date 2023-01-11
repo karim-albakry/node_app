@@ -12,6 +12,17 @@ pipeline {
                 sh 'node --version'
             }
         }
+        stage('Build liqui') {
+            agent {
+                docker {
+                    image 'liquibase/liquibase:4.18.0'
+                    reuseNode true
+                }
+            }
+            steps {
+                sh 'node liquibase --version'
+            }
+        }
     }
 }
 
