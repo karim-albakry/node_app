@@ -73,7 +73,7 @@ pipeline {
                 docker { image 'liquibase/liquibase:4.4.2' }
             }
             steps {
-                sh 'liquibase --version'
+                sh 'liquibase --help'
             }
         }
 
