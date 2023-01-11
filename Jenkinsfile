@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'node liquibase --version'
+                sh 'liquibase --version'
             }
         }
     }
