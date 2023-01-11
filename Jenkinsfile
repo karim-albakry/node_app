@@ -1,17 +1,18 @@
 pipeline {
-  agent any
-  stages {
-       stage ('Test Liquibase') {
-            steps {
-                script {
-                    // sh 'wget https://github.com/liquibase/liquibase/releases/download/v4.18.0/liquibase-4.18.0.tar.gz'
-                    sh 'mkdir liquibase'
-                    sh 'ls'
-                    sh 'tar -xvzf liquibase-4.18.0.tar.gz liquibase'
+    agent any
+    stages {
+        stage('Build') {
+            agent {
+                docker {
+                    image 'node:16.13.1-alpine'
+                    reuseNode true
                 }
             }
+            steps {
+                sh 'node --version'
+            }
         }
-  }
+    }
 }
 
 // pipeline {
