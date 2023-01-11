@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script {
                     sh 'npm install'
-                    sh 'npm audit fix --force'
+                    // sh 'npm audit fix --force'
                 }
             }
         }
@@ -75,7 +75,7 @@ pipeline {
                 }
                }
         }
-        
+
         stage('Build docker image') {
             steps {
                 script {
