@@ -70,11 +70,11 @@ pipeline {
 
         stage ('Test Liquibase') {
             agent {
-                docker 'liquibase/liquibase:4.4.2'
+                docker 'liquibase/liquibase'
             }
             steps {
                 script {
-                    sh 'liquibase --version'
+                    sh 'liquibase'
                 }
             }
         }
