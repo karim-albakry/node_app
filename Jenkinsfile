@@ -74,7 +74,6 @@ pipeline {
             }
             steps {
                 script {
-                    unstash 'artifacts'
                     sh 'liquibase --version'
                 }
             }
