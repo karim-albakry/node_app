@@ -11,9 +11,9 @@ pipeline {
         method_CT=''
     }
 
-    tools {
-        nodejs 'NodeJS-18.12.1'
-    }
+    // tools {
+    //     nodejs 'NodeJS-18.12.1'
+    // }
 
     stages {
         
@@ -31,6 +31,9 @@ pipeline {
         // }
 
         stage('Startup') {
+            agent {
+                docker 'node'
+            }
             steps {
                 script {
                     sh 'npm install'
