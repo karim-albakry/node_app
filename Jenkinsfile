@@ -69,13 +69,12 @@ pipeline {
         }
 
         stage ('Test Liquibase') {
+            agent {
+                docker { image 'liquibase/liquibase:4.4.2' }
+            }
             steps {
-                script {
-                    docker.image('liquibase/liquibase:4.4.2').withRun(){ c ->
-                        sh "liquibase --version"
-                    }
-                }
-               }
+                sh 'liquibase --version'
+            }
         }
 
         stage('Build docker image') {
