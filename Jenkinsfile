@@ -1,8 +1,10 @@
 pipeline {
-    agent any
+    agent {
+         docker { image 'liquibase/liquibase:4.4.2' }
+    }
 
     environment {
-        imageName = "pip_poc_03"
+        imageName = "pip_poc_04"
         registryCredentials = "	nexus"
         registry = "10.200.100.116:8083"
         dockerImage = ''
@@ -28,7 +30,7 @@ pipeline {
 
         stage ('Code Quality') {
             steps {
-                sh 'echo "todo run sonarqube >>>>Here<<<<."'
+                echo "todo run sonarqube >>>>Here<<<<."
             }
         }
 
@@ -67,6 +69,15 @@ pipeline {
                 }
              }
         }
+
+        stage ('Test Liquibase') {
+            steps {
+               script {
+                sh "liquibase --version"
+               }
+            }
+        }
+
 
         stage('Build docker image') {
             steps {
