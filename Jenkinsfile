@@ -32,7 +32,9 @@ pipeline {
 
         stage('Startup') {
             agent {
-                docker 'node'
+                docker {
+                    image 'node:18-alpine'
+                }
             }
             steps {
                 script {
