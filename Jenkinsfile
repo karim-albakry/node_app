@@ -17,18 +17,18 @@ pipeline {
 
     stages {
         
-        stage ('Test Liquibase') {
-            agent {
-                docker {
-                    image 'liquibase/liquibase'
-                }
-            }
-            steps {
-                script {
-                    sh 'liquibase --version'
-                }
-            }
-        }
+        // stage ('Test Liquibase') {
+        //     agent {
+        //         docker {
+        //             image 'liquibase/liquibase'
+        //         }
+        //     }
+        //     steps {
+        //         script {
+        //             sh 'liquibase --version'
+        //         }
+        //     }
+        // }
 
         stage('Startup') {
             steps {
