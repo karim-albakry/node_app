@@ -92,7 +92,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'liquibase update --url="jdbc:mysql://10.200.100.112:5432/employee_db" --changeLogFile=db.postgresql.sql --username=postgres --password=postgres'
+                sh 'liquibase update --url="jdbc:postgresql://10.200.100.112:5432/employee_db" --changeLogFile=db.postgresql.sql --username=postgres --password=postgres'
             }
         }
     }
