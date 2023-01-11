@@ -16,6 +16,19 @@ pipeline {
     }
 
     stages {
+        
+        stage ('Test Liquibase') {
+            agent {
+                docker {
+                    image 'liquibase/liquibase'
+                }
+            }
+            steps {
+                script {
+                    sh 'liquibase --version'
+                }
+            }
+        }
 
         stage('Startup') {
             steps {
@@ -66,19 +79,6 @@ pipeline {
                     cobertura autoUpdateHealth: false, autoUpdateStability: false, coberturaReportFile: 'output/coverage/jest/cobertura-coverage.xml', conditionalCoverageTargets: conditional_CT, failUnstable: false, lineCoverageTargets: line_CT, maxNumberOfBuilds: 1, methodCoverageTargets: method_CT, sourceEncoding: 'ASCII', zoomCoverageChart: false
                 }
              }
-        }
-
-        stage ('Test Liquibase') {
-            agent {
-                docker {
-                    image 'liquibase/liquibase'
-                }
-            }
-            steps {
-                script {
-                    sh 'liquibase --version'
-                }
-            }
         }
 
         stage('Build docker image') {
