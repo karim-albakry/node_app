@@ -11,31 +11,13 @@ pipeline {
         method_CT=''
     }
 
-    // tools {
-    //     nodejs 'NodeJS-18.12.1'
-    // }
+    tools {
+        nodejs 'NodeJS-18.12.1'
+    }
 
     stages {
-        
-        // stage ('Test Liquibase') {
-        //     agent {
-        //         docker {
-        //             image 'liquibase/liquibase'
-        //         }
-        //     }
-        //     steps {
-        //         script {
-        //             sh 'liquibase --version'
-        //         }
-        //     }
-        // }
 
         stage('Startup') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                }
-            }
             steps {
                 script {
                     sh 'npm install'
