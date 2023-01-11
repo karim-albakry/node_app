@@ -72,7 +72,6 @@ pipeline {
             agent {
                 docker {
                     image 'liquibase/liquibase'
-                    reuseNode true
                 }
             }
             steps {
