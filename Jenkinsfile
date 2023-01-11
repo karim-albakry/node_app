@@ -1,8 +1,5 @@
 pipeline {
-    agent {
-         docker { image 'liquibase/liquibase:4.4.2' }
-         docker { image 'node' }
-    }
+    agent any
 
     environment {
         imageName = "pip_poc_04"
@@ -73,8 +70,9 @@ pipeline {
 
         stage ('Test Liquibase') {
             steps {
-               script {
-                sh "liquibase --version"
+                docker.image('mysql:5').withRun("liquibase --version") {
+
+                }
                }
             }
         }
