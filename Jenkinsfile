@@ -9,7 +9,8 @@ pipeline {
             }
             steps {
                 script {
-                    sh 'liquibase --version'
+                    sh 'pwd'
+                    // sh 'liquibase --version'
                 }
             }
         }
