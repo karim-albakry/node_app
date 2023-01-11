@@ -70,8 +70,10 @@ pipeline {
 
         stage ('Test Liquibase') {
             agent {
-                docker 'liquibase/liquibase'
-                reuseNode true
+                docker {
+                    image 'liquibase/liquibase'
+                    reuseNode true
+                }
             }
             steps {
                 script {
