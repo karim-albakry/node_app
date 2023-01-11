@@ -1,6 +1,7 @@
 pipeline {
     agent {
          docker { image 'liquibase/liquibase:4.4.2' }
+         docker { image 'node' }
     }
 
     environment {
