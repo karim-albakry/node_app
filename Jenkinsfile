@@ -5,7 +5,6 @@ pipeline {
             agent {
                 docker {
                     image 'node:16.13.1-alpine'
-                    reuseNode true
                 }
             }
             steps {
@@ -16,7 +15,6 @@ pipeline {
             agent {
                 docker {
                     image 'liquibase/liquibase:4.18.0'
-                    reuseNode true
                 }
             }
             steps {
