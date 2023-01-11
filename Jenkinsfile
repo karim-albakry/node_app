@@ -1,29 +1,3 @@
-// pipeline {
-//     agent any
-//     stages {
-//         stage('Build') {
-//             agent {
-//                 docker {
-//                     image 'node:16.13.1-alpine'
-//                 }
-//             }
-//             steps {
-//                 sh 'node --version'
-//             }
-//         }
-//         stage('Build liqui') {
-//             agent {
-//                 docker {
-//                     image 'liquibase/liquibase:4.18.0'
-//                 }
-//             }
-//             steps {
-//                 sh 'liquibase --version'
-//             }
-//         }
-//     }
-// }
-
 pipeline {
     agent any
 
@@ -118,7 +92,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'liquibase --version'
+                sh 'liquibase update --url="jdbc:mysql://10.200.100.112:5432/employee_db" --changeLogFile=db.postgresql.sql --username=postgres --password=postgres'
             }
         }
     }
