@@ -70,10 +70,11 @@ pipeline {
 
         stage ('Test Liquibase') {
             agent {
-                docker { image 'liquibase/liquibase:4.4.2' }
+                docker 'liquibase/liquibase:4.4.2'
             }
             steps {
                 script {
+                    unstash 'artifacts'
                     sh 'liquibase --version'
                 }
             }
