@@ -4,7 +4,8 @@ pipeline {
        stage ('Test Liquibase') {
             steps {
                 script {
-                    sh 'which wget'
+                    sh 'wget -O liquibase-4.18.0.tar.gz https://github.com/liquibase/liquibase/releases/download/v4.18.0'
+                    sh 'ls'
                 }
             }
         }
