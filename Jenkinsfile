@@ -71,10 +71,11 @@ pipeline {
         stage ('Test Liquibase') {
             agent {
                 docker 'liquibase/liquibase'
+                reuseNode true
             }
             steps {
                 script {
-                    sh 'liquibase'
+                    sh 'liquibase --version'
                 }
             }
         }
